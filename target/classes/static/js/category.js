@@ -13,67 +13,78 @@ private Integer year;
 private String description;*/
 
 function traerInformacion(){
+    urlString = "/api/Category/all";
     $.ajax({
-        url:"http://localhost:8080/api/Skate/all",
+        method: "GET",
+        url: urlString
+    })
+    .done(
+        function(responseJson)
+        {
+            alert(responseJson)
+        }
+    )
+    .fail(
+        function()
+        {
+            alert("Error servidor");
+        }
+    )
+    .always(
+        function()
+        {
+            alert("siempre ejecutandose")
+        }
+    )
+    ;
+   /* $.ajax({
         type: "GET",
-        datatype:"JSON",
+        contentType: "application/json",
+        url:"/api/Category/all",
+        datatype:"json",
         success:function(respuesta){
             console.log(respuesta);
             var o = respuesta.items;
-            //alert(o[1].id);
-            $('#tablaSkate').dataTable( {
+            alert(o[1].id);
+            $('#tablaCategory').dataTable( {
                 responsive: true,
                 data : o,
                 columns: [
-                    {"data": "id"},
                     {"data": "name"},
-                    {"data": "brand"},
-                    {"data": "model"},
-                    {"data": "category_id"}, 
+                    {"data": "description"},
                     {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>edit</i></button><button class='btn btn-danger btn-sm btnBorrar'><i class='material-icons'>delete</i></button></div></div>"}          
                 ],
             });
         }
-    });
+    });*/
 }
 
 function guardarInformacion()
 {
-
-    
-
     let myData = {
         name:$("#name").val(),
-        brand:$("#brand").val(),
-        year:$("#year").val(),
-        description:$("#description").val(), 
+        brand:$("#description").val()
     }
     let dataToSend=JSON.stringify(myData);
-    alert(dataToSend);
     $.ajax({
-        url:"http://localhost:8080/api/Skate/save",
         type: "POST",
-        data: myData,
-        datatype:"JSON",
+        contentType: "application/json",
+        url:"/api/Category/save",
+        data: dataToSend,
+        datatype:"json",
+        cache: false,
+        timeout: 600000,
         success:function(respuesta){
             //alert("Se agrego la tabla correctamente");
             location.reload();
+        },
+        error : function(e) {
+            alert(e);
+        },
+        done : function(e) {
+            alert(e);
         }
     }); 
-   /*  $.ajax({
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        url: "http://localhost:8080/api/Skate/save",
-        data: JSON.stringify({'name': name}),
-        cache: false,
-        success: function(result) {
-            $("#msg").html( "<span style='color: green'>Company added successfully</span>" );
-            window.setTimeout(function(){location.reload()},1000)
-        },
-        error: function(err) {
-            $("#msg").html( "<span style='color: red'>Name is required</span>" );
-        }
-    }); */
 }
 
 ///////Boton borrar

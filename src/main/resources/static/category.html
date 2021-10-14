@@ -188,15 +188,14 @@
             <li class="active bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">pages</i><span class="menu-title" data-i18n="Pages">TABLAS</span></a>
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                        <li><a href="category.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Page Blank">Categoria</span></a>
+                        <li class="active"><a class="active" href="category.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Page Blank">Categoria</span></a>
                         </li>
-                        <li class="active"><a class="active" href="index.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Page Blank">Skate</span></a>
+                        <li><a href="index.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Page Blank">Skate</span></a>
                         </li>
                         <li><a href="#"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Page Blank">Cliente</span></a>
                         </li>
                         <li><a href="#"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Page Blank">Mensaje</span></a>
                         </li>
-                        
                     </ul>
                 </div>
             </li>
@@ -214,7 +213,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6 breadcrumbs-left">
-                            <h5 class="breadcrumbs-title mt-0 mb-0 display-inline hide-on-small-and-down"><span>Tabla Skate</span></h5>
+                            <h5 class="breadcrumbs-title mt-0 mb-0 display-inline hide-on-small-and-down"><span>Tabla Categoria</span></h5>
                         </div>
                         <div class="col s2 m6 l6"><a class="btn btn-floating dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="#!" data-target="dropdown1"><i class="material-icons">expand_more </i><i class="material-icons right">arrow_drop_down</i></a>
                             <ul class="dropdown-content" id="dropdown1" tabindex="0">
@@ -240,9 +239,7 @@
                                 <h4>Guardar</h4>
                                 <div>
                                     <input type="text" id="name" placeholder="name">
-                                    <input type="text" id="brand" placeholder="brand">
-                                    <input type="number" id="year" placeholder="year">
-                                    <input type="text" id="description" placeholder="description">       
+                                    <input type="text" id="description" placeholder="description">   
                                 </div>
                                 <button class="btn waves-effect waves-light " type="submit" name="action" onclick="guardarInformacion()">Guardar
                                     <i class="material-icons right"  >send</i>
@@ -279,13 +276,11 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                             <div class="table-responsive">        
-                                                <table id="tablaSkate" class="table table-striped table-bordered table-condensed" style="width:100%" >
+                                                <table id="tablaCategory" class="table table-striped table-bordered table-condensed" style="width:100%" >
                                                     <thead class="text-center">
                                                         <tr>
-                                                            <th>Name</th>
-                                                            <th>Brand</th>                                
-                                                            <th>Year</th> 
-                                                            <th>Description</th>
+                                                            <th>Nombre</th>
+                                                            <th>Descripción</th>                                
                                                             <th>Acciones</th>
                                                         </tr>
                                                     </thead>
@@ -677,7 +672,7 @@
     <!-- END THEME  JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <!-- <script src="app-assets/js/scripts/data-tables.js"></script> -->
-    <script src="js/skate.js"></script>
+    <script src="js/category.js"></script>
     <!-- END PAGE LEVEL JS-->
 
 </body>
