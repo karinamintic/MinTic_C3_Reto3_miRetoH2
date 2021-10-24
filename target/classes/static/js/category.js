@@ -6,11 +6,6 @@ $(document).ready(function() {
     
 
 });
-/*private Integer id;
-private String name;
-private String brand;
-private Integer year;
-private String description;*/
 
 function traerInformacion(){
     urlString = "/api/Category/all";
@@ -19,36 +14,12 @@ function traerInformacion(){
         url: urlString
     })
     .done(
-        function(responseJson)
+        function(respuesta)
         {
-            alert(responseJson)
-        }
-    )
-    .fail(
-        function()
-        {
-            alert("Error servidor");
-        }
-    )
-    .always(
-        function()
-        {
-            alert("siempre ejecutandose")
-        }
-    )
-    ;
-   /* $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url:"/api/Category/all",
-        datatype:"json",
-        success:function(respuesta){
-            console.log(respuesta);
-            var o = respuesta.items;
-            alert(o[1].id);
+            //alert("Datos"+respuesta);
             $('#tablaCategory').dataTable( {
                 responsive: true,
-                data : o,
+                data : respuesta,
                 columns: [
                     {"data": "name"},
                     {"data": "description"},
@@ -56,14 +27,27 @@ function traerInformacion(){
                 ],
             });
         }
-    });*/
+    )
+    .fail(
+        function()
+        {
+            //alert("Error servidor");
+        }
+    )
+    .always(
+        function()
+        {
+            //alert("siempre ejecutandose")
+        }
+    )
+    ;
 }
 
 function guardarInformacion()
 {
     let myData = {
         name:$("#name").val(),
-        brand:$("#description").val()
+        description:$("#description").val()
     }
     let dataToSend=JSON.stringify(myData);
     $.ajax({
@@ -87,7 +71,7 @@ function guardarInformacion()
     }); 
 }
 
-///////Boton borrar
+/* ///////Boton borrar
 $(document).on("click", ".btnBorrar", function(){
     fila = $(this);           
     user_id = parseInt($(this).closest('tr').find('td:eq(0)').text()) ;		
@@ -150,4 +134,4 @@ function editarInformacion()
             location.reload();
         }
     });
-}
+} */
