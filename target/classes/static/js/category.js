@@ -1,9 +1,8 @@
 $(document).ready(function() {
-    
+
     $('.modal').modal();
     traerInformacion();
 
-    
 
 });
 
@@ -26,6 +25,7 @@ function traerInformacion(){
                     {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>edit</i></button><button class='btn btn-danger btn-sm btnBorrar'><i class='material-icons'>delete</i></button></div></div>"}          
                 ],
             });
+            $('#tablaCategory').dataTable().ajax.reload();
         }
     )
     .fail(
@@ -60,7 +60,11 @@ function guardarInformacion()
         timeout: 600000,
         success:function(respuesta){
             //alert("Se agrego la tabla correctamente");
-            location.reload();
+            //location.reload();
+            //$('#tablaCategory').dataTable().ajax.reload();
+            $('#tablaCategory').dataTable().fnDestroy();
+            traerInformacion();
+
         },
         error : function(e) {
             alert(e);
